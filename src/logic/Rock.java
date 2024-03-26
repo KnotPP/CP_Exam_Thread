@@ -1,23 +1,20 @@
 package logic;
 
 import application.Main;
-import javafx.application.Platform;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import java.util.Random;
 
-public class Star extends Item{
-
+public class Rock extends Item{
     Random rand = new Random();
-    public Star() {
+    public Rock() {
         super();
         setX(rand.nextInt(20,440));
         setY(10);
-        speedX = rand.nextInt(5,9) ;
-        speedY = rand.nextInt(4,8) ;
-        String star = ClassLoader.getSystemResource("image/Star.png").toString();
-        imageView = new ImageView(star);
-
+        speedX = rand.nextInt(2,5) ;
+        speedY = rand.nextInt(2,5) ;
+        String rock = ClassLoader.getSystemResource("image/Rock.png").toString();
+        imageView = new ImageView(rock);
 
         imageView.setFitHeight(40);
         imageView.setFitWidth(40);
@@ -38,9 +35,13 @@ public class Star extends Item{
         double ufoX = Main.UFO.getX();
         if(getY()>=585) {
             if(getX()>=ufoX && getX()<=ufoX+120) {
-                int scoreNow = Main.menuPane.getScore() +10;
-                Main.menuPane.setScore(scoreNow);
-                isItemOut = true;
+                int scoreNow = Main.menuPane.getScore()-10;
+                if(scoreNow < 0){
+                    Main.isGameEnd = true;
+                }else{
+                    Main.menuPane.setScore(scoreNow);
+                    isItemOut = true;
+                }
             } else if (getY() >= 620) {
                 isItemOut = true;
             }

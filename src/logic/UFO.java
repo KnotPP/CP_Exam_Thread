@@ -15,7 +15,7 @@ public class UFO implements Drawable{
         imageView.setFitHeight(40);
 
         setX(200);
-        setY(600);
+        setY(620);
         initUFO();
     }
     public double getX() {
@@ -52,7 +52,7 @@ public class UFO implements Drawable{
         imageView = im;
     }
 
-    protected void initUFO() {
+    private void initUFO() {
 		/*====================FILL CODE============================
 		Add something on the code below to make new paddle appear while application
 		can be responded*/
@@ -66,7 +66,7 @@ public class UFO implements Drawable{
 
         /*========================================================*/
     }
-    protected void updateUFO() {
+    private void updateUFO() {
         UFO x = this;
         try {
             while(!Main.isGameEnd) {
@@ -83,7 +83,6 @@ public class UFO implements Drawable{
                     @Override
                     public void run() {
                         Main.drawItem(x);
-
                     }
                 });
 

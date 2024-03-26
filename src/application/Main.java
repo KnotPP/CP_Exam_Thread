@@ -35,7 +35,7 @@ public class Main extends Application {
     private static final Image background = new Image(backgroundPic);
     public static MenuPane menuPane = new MenuPane();
     public static boolean isGameEnd=false;
-    public ArrayList<Item> items = new ArrayList<Item>();
+    public static ArrayList<Item> items = new ArrayList<Item>();
     @Override
     public void start(Stage stage){
         setup();
@@ -56,10 +56,16 @@ public class Main extends Application {
             }
         });
         drawBackground();
-         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {items.add(new Star());
-         }));
-		 timeline.setCycleCount(Timeline.INDEFINITE);
-		 timeline.play();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(4), event -> {
+            items.add(new Star());
+        }));
+		timeline.setCycleCount(Timeline.INDEFINITE);
+		timeline.play();
+        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+            items.add(new Rock());
+        }));
+        timeline2.setCycleCount(Timeline.INDEFINITE);
+        timeline2.play();
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -89,5 +95,4 @@ public class Main extends Application {
         im.relocate((double)(d.getX()), (double)(d.getY()));
         pane.getChildren().add(im);
     }
-
 }

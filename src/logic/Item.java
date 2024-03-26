@@ -13,10 +13,7 @@ public abstract class Item implements Drawable{
     Random rand = new Random();
     String star = ClassLoader.getSystemResource("image/Star.png").toString();
     public ImageView imageView = new ImageView(star);
-    public Item() {
-        speedX = rand.nextInt(2,10) ;
-        speedY = rand.nextInt(2,10) ;
-    }
+    public Item() {}
     public double getX() {
         return x;
     }
@@ -68,7 +65,7 @@ public abstract class Item implements Drawable{
                     @Override
                     public void run() {
                         Main.drawItem(x);
-
+                        Main.menuPane.setScoreText(Main.menuPane.getScore());
                     }
                 });
                 //Main.drawItem(this);
