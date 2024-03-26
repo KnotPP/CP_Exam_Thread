@@ -2,19 +2,12 @@ package application;
 
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import logic.*;
@@ -56,16 +49,16 @@ public class Main extends Application {
             }
         });
         drawBackground();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(4), event -> {
+        Timeline timelineStar = new Timeline(new KeyFrame(Duration.seconds(4), event -> {
             items.add(new Star());
         }));
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.play();
-        Timeline timeline2 = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
+        timelineStar.setCycleCount(Timeline.INDEFINITE);
+        timelineStar.play();
+        Timeline timelineRock = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
             items.add(new Rock());
         }));
-        timeline2.setCycleCount(Timeline.INDEFINITE);
-        timeline2.play();
+        timelineRock.setCycleCount(Timeline.INDEFINITE);
+        timelineRock.play();
 
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override

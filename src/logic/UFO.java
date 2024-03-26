@@ -54,7 +54,7 @@ public class UFO implements Drawable{
 
     private void initUFO() {
 		/*====================FILL CODE============================
-		Add something on the code below to make new paddle appear while application
+		Add something on the code below to make new UFO appear while application
 		can be responded*/
         Thread thread = new Thread(){
             @Override

@@ -10,7 +10,6 @@ public abstract class Item implements Drawable{
     public double speedX;
     public double speedY;
     public boolean isItemOut = false ;
-    Random rand = new Random();
     String star = ClassLoader.getSystemResource("image/Star.png").toString();
     public ImageView imageView = new ImageView(star);
     public Item() {}
@@ -68,7 +67,6 @@ public abstract class Item implements Drawable{
                         Main.menuPane.setScoreText(Main.menuPane.getScore());
                     }
                 });
-                //Main.drawItem(this);
                 /*========================================================*/
             }
             if(isItemOut) {
@@ -81,7 +79,6 @@ public abstract class Item implements Drawable{
                     @Override
                     public void run() {
                         Main.pane.getChildren().remove(imageView);
-
                     }
                 });
 
