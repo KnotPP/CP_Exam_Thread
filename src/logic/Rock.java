@@ -42,7 +42,7 @@ public class Rock extends Item{
                     Main.menuPane.setScore(scoreNow);
                     isItemOut = true;
                 }
-            } else if (getY() >= 620) {
+            } else if (getY() >= 660) {
                 isItemOut = true;
             }
         }
