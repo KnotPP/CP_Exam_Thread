@@ -28,7 +28,7 @@ public class Main extends Application {
     private static final Image background = new Image(backgroundPic);
     public static MenuPane menuPane = new MenuPane();
     public static boolean isGameEnd=false;
-    public static ArrayList<Item> items = new ArrayList<Item>();
+    public static ArrayList<Item> items = new ArrayList<>();
     @Override
     public void start(Stage stage){
         setup();
@@ -49,14 +49,10 @@ public class Main extends Application {
             }
         });
         drawBackground();
-        Timeline timelineStar = new Timeline(new KeyFrame(Duration.seconds(4), event -> {
-            items.add(new Star());
-        }));
+        Timeline timelineStar = new Timeline(new KeyFrame(Duration.seconds(4), event -> items.add(new Star())));
         timelineStar.setCycleCount(Timeline.INDEFINITE);
         timelineStar.play();
-        Timeline timelineRock = new Timeline(new KeyFrame(Duration.seconds(2), event -> {
-            items.add(new Rock());
-        }));
+        Timeline timelineRock = new Timeline(new KeyFrame(Duration.seconds(2), event -> items.add(new Rock())));
         timelineRock.setCycleCount(Timeline.INDEFINITE);
         timelineRock.play();
 
@@ -84,8 +80,10 @@ public class Main extends Application {
 
     public static void drawItem(Drawable d) {
         ImageView im = d.getImageView();
-        pane.getChildren().removeAll(im);
-        im.relocate((double)(d.getX()), (double)(d.getY()));
-        pane.getChildren().add(im);
+        im.relocate(d.getX(),d.getY());
+        if (!pane.getChildren().contains(im)) {
+            pane.getChildren().add(im);
+        }
     }
+
 }
